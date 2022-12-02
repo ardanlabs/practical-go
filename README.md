@@ -166,7 +166,7 @@ This is an assorted collection of exercises for teaching, not a real Go project.
 - [rtb.go](_extra/rtb.go)
 - [site_times.go](_extra/site_time.go)
 - [taxi_check.go](_extra/taxi_check.go)
-    - [taxi-sha256.zip]()
+    - [taxi-sha256.zip](_extra/taxi-sha256.zip)
 
 ---
 
