@@ -24,6 +24,6 @@ RUN go install github.com/go-delve/delve/cmd/dlv@latest
 RUN go install honnef.co/go/tools/cmd/staticcheck@latest
 RUN go install golang.org/x/tools/gopls@latest
 
-RUN go instal github.com/rakyll/hey@latest
+RUN go install github.com/rakyll/hey@latest
 RUN go install golang.org/x/pkgsite/cmd/pkgsite@latest
 ENV PATH=/home/vscode/go/bin:${PATH}
