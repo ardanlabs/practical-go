@@ -204,20 +204,20 @@ Adding metrics & logging
 `nlp` project
 
 <pre>
-├── <a href="html/nlp/go.mod.html">go.mod</a> - Project & dependencies
-├── <a href="html/nlp/nlp.go.html">nlp.go</a> - Package code
-├── <a href="html/nlp/doc.go.html">doc.go</a> - Package level documentation
-├── <a href="html/nlp/nlp_test.go.html">nlp_test.go</a> - Test & benchmark file
-├── <a href="html/nlp/example_test.go.html">example_test.go</a> - Testable example
+├── <a href="nlp/go.mod">go.mod</a> - Project & dependencies
+├── <a href="nlp/nlp.go">nlp.go</a> - Package code
+├── <a href="nlp/doc.go">doc.go</a> - Package level documentation
+├── <a href="nlp/nlp_test.go">nlp_test.go</a> - Test & benchmark file
+├── <a href="nlp/example_test.go">example_test.go</a> - Testable example
 ├── stemmer - Sub module
-│   ├── <a href="html/nlp/stemmer/stemmer.go.html">stemmer.go</a>
-│   └── <a href="html/nlp/stemmer/stemmer_test.go.html">stemmer_test.go</a>
+│   ├── <a href="nlp/stemmer/stemmer.go">stemmer.go</a>
+│   └── <a href="nlp/stemmer/stemmer_test.go">stemmer_test.go</a>
 ├── testdata - Test data
-│      └── <a href="html/nlp/testdata/tokenize_cases.yml.html">tokenize_cases.yml</a> - Test cases
+│      └── <a href="nlp/testdata/tokenize_cases.toml">tokenize_cases.toml</a> - Test cases
 └── cmd  - Executables
     └── nlpd - HTTP server
-        ├── <a href="html/nlp/cmd/nlpd/main.go.html">main.go</a>
-        └── <a href="html/nlp/cmd/nlpd/main_test.go.html">main_test.go</a>
+        ├── <a href="nlp/cmd/nlpd/main.go">main.go</a>
+        └── <a href="nlp/cmd/nlpd/main_test.go">main_test.go</a>
 </pre>
 
 
