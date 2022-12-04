@@ -1,0 +1,273 @@
+go version
+go version go1.19 linux/amd64
+
+practical-go/code on  znga [!] 
+$ git --version
+git version 2.37.1
+
+practical-go/code on  znga [!] 
+$ go mod init znga
+go: creating new go.mod: module znga
+
+practical-go/code on  znga [!?] via go v1.19 
+$ cd hw
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ go build
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ ls
+hw  hw.go
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ ./hw
+Hello Gophers ☺
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$go run hw.go 
+Hello Gophers ☺
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ time go run hw.go
+Hello Gophers ☺
+go run hw.go  0.13s user 0.10s system 170% cpu 0.131 total
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ ls -lh
+total 1.8M
+-rwxr-xr-x 1 miki miki 1.8M Aug 15 18:42 hw
+-rw-r--r-- 1 miki miki   99 Aug 15 18:39 hw.go
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ file hw
+hw: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, Go BuildID=dFgD23zZ7NI6O5ew16GP/XliIXyg1PplnDkBq2jUD/92icc3i6hrQ9iPN8NFE4/BiU5FfDBgZEc9PJQ_xNL, with debug_info, not stripped
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ go env GOARCH GOOS
+amd64
+linux
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ GOOS=darwin go build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 45    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 67
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+227     size2 := 0
+228     for _, r := range a {
+229         // check for race
+230         if size2 >= size1 {
+231             break
+232         }
+233         size2 += encoderune(b[size2:], r)
+234     }
+235     return s[:size2]
+236 }
+237 
+238 type stringStruct struct {
+239     str unsafe.Pointer
+240     len int
+241 }
+242 
+243 // Variant with *byte pointer type for DWARF debugging.
+244 type stringStructDWARF struct {
+245     str *byte
+246     len int
+247 }
+248 
+249 func stringStructOf(sp *string) *stringStruct {
+250     return (*stringStruct)(unsafe.Pointer(sp))
+ COMMAND  SPELL [EN]   master⚡  <o/src/runtime/string.go   go  utf-8[unix]  40% :238/589☰ ℅:1 
+/tthub.com/users/tebeka/following{/other_user}","gists_url":"https://api.github.com/users/tebeka/gists{/gist_id}","starred_url":"https://api.github.com/users/tebeka/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tebeka/subscriptions","organizations_url":"https://api.github.com/users/tebeka/orgs","repos_url":"https://api.github.com/users/tebeka/repos","events_url":"https://api.github.com/users/tebeka/events{/privacy}","received_events_url":"https://api.github.com/users/tebeka/received_events","type":"User","site_admin":false,"name":"Miki Tebeka","company":"353solutions","blog":"https://www.353solutions.com","location":"Israel ","email":null,"hireable":true,"bio":"A person (arguably)\r\n\r\nalso CEO of @353solutions ","twitter_username":"tebeka","public_repos":86,"public_gists":205,"followers":229,"following":3,"created_at":"2009-05-22T21:46:45Z","updated_at":"2022-08-02T17:10:14Z"}%                       
+practical-go/code/hw on  znga [!?] via go v1.19 
+❮ curl -H 'User-Agent: go' https://api.github.com/users/tebeka 
+{"login":"tebeka","id":87697,"node_id":"MDQ6VXNlcjg3Njk3","avatar_url":"https://avatars.githubusercontent.com/u/87697?v=4","gravatar_id":"","url":"https://api.github.com/users/tebeka","html_url":"https://github.com/tebeka","followers_url":"https://api.github.com/users/tebeka/followers","following_url":"https://api.github.com/users/tebeka/following{/other_user}","gists_url":"https://api.github.com/users/tebeka/gists{/gist_id}","starred_url":"https://api.github.com/users/tebeka/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tebeka/subscriptions","organizations_url":"https://api.github.com/users/tebeka/orgs","repos_url":"https://api.github.com/users/tebeka/repos","events_url":"https://api.github.com/users/tebeka/events{/privacy}","received_events_url":"https://api.github.com/users/tebeka/received_events","type":"User","site_admin":false,"name":"Miki Tebeka","company":"353solutions","blog":"https://www.353solutions.com","location":"Israel ","email":null,"hireable":true,"bio":"A person (arguably)\r\n\r\nalso CEO of @353solutions ","twitter_username":"tebeka","public_repos":86,"public_gists":205,"followers":229,"following":3,"created_at":"2009-05-22T21:46:45Z","updated_at":"2022-08-02T17:10:14Z"}%                       
+practical-go/code/hw on  znga [!?] via go v1.19 
+$curl -H 'User-Agent: go' https://api.github.com/users/tebeka | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1236  100  1236    0     0   4749      0 --:--:-- --:--:-- --:--:--  4772
+{
+  "login": "tebeka",
+  "id": 87697,
+  "node_id": "MDQ6VXNlcjg3Njk3",
+  "avatar_url": "https://avatars.githubusercontent.com/u/87697?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/tebeka",
+  "html_url": "https://github.com/tebeka",
+  "followers_url": "https://api.github.com/users/tebeka/followers",
+  "following_url": "https://api.github.com/users/tebeka/following{/other_user}",
+  "gists_url": "https://api.github.com/users/tebeka/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/tebeka/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/tebeka/subscriptions",
+  "organizations_url": "https://api.github.com/users/tebeka/orgs",
+  "repos_url": "https://api.github.com/users/tebeka/repos",
+  "events_url": "https://api.github.com/users/tebeka/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/tebeka/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Miki Tebeka",
+  "company": "353solutions",
+  "blog": "https://www.353solutions.com",
+  "location": "Israel ",
+  "email": null,
+  "hireable": true,
+  "bio": "A person (arguably)\r\n\r\nalso CEO of @353solutions ",
+  "twitter_username": "tebeka",
+  "public_repos": 86,
+  "public_gists": 205,
+  "followers": 229,
+  "following": 3,
+  "created_at": "2009-05-22T21:46:45Z",
+  "updated_at": "2022-08-02T17:10:14Z"
+}
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ curl -H 'User-Agent: go' https://api.github.com/users/tebeka | jq .name
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1236  100  1236    0     0   4786      0 --:--:-- --:--:-- --:--:--  4809
+"Miki Tebeka"
+
+practical-go/code/hw on  znga [!?] via go v1.19 
+$ cd ../sha1 
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ cp ../../data/http.log.gz .
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ cat http.log.gz| sha1sum 
+b99d49bf8abe1121b732b160d25e9a4d57ad1b8f  -
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ cat http.log.gz| gunzip | sha1sum
+ef7dc39754fd23f7a1a8657e2ffda49edc49fff9  -
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ ulimit -a
+-t: cpu time (seconds)              unlimited
+-f: file size (blocks)              unlimited
+-d: data seg size (kbytes)          unlimited
+-s: stack size (kbytes)             8192
+-c: core file size (blocks)         unlimited
+-m: resident set size (kbytes)      unlimited
+-u: processes                       159133
+-n: file descriptors                1024
+-l: locked-in-memory size (kbytes)  8192
+-v: address space (kbytes)          unlimited
+-x: file locks                      unlimited
+-i: pending signals                 159133
+-q: bytes in POSIX msg queues       819200
+-e: max nice                        0
+-r: max rt priority                 0
+-N 15: rt cpu time (microseconds)   unlimited
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ cat sha1.go| sha1sum 
+129aab83488a1300b58608e2aae856fa06d297f6  -
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ cat http.log.gz| gunzip | sha1sum
+ef7dc39754fd23f7a1a8657e2ffda49edc49fff9  -
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$ cat sha1.go| sha1sum             
+c276fac27524b5643ec0546093489bf3d3c2bed5  -
+
+practical-go/code/sha1 on  znga [!?] via go v1.19 
+$

@@ -1,0 +1,600 @@
+go doc .
+package nlp // import "github.com/353solutions/nlp"
+
+Package nlp provides natural language processing utilities.
+
+...
+
+func Tokenize(text string) []string
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ pkgsite -http=:8080 
+zsh: command not found: pkgsite
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go install golang.org/x/pkgsite/cmd/pkgsite@latest
+go: downloading golang.org/x/pkgsite v0.0.0-20220816173908-df474352402a
+go: downloading cloud.google.com/go/logging v1.4.2
+go: downloading github.com/go-redis/redis/v8 v8.11.4
+go: downloading cloud.google.com/go/errorreporting v0.1.0
+go: downloading github.com/go-redis/redis_rate/v9 v9.1.2
+go: downloading go.opencensus.io v0.23.0
+go: downloading github.com/google/safehtml v0.0.3-0.20211026203422-d6f0e11a5516
+go: downloading google.golang.org/api v0.63.0
+go: downloading golang.org/x/mod v0.5.1
+go: downloading golang.org/x/net v0.0.0-20211013171255-e13a2654a71e
+go: downloading cloud.google.com/go v0.99.0
+go: downloading github.com/go-git/go-billy/v5 v5.3.1
+go: downloading github.com/go-git/go-git/v5 v5.4.2
+go: downloading github.com/hashicorp/golang-lru v0.5.1
+go: downloading github.com/microcosm-cc/bluemonday v1.0.5
+go: downloading github.com/russross/blackfriday/v2 v2.1.0
+go: downloading github.com/yuin/goldmark v1.4.0
+go: downloading github.com/yuin/goldmark-emoji v1.0.1go: downloading golang.org/x/vuln v0.0.0-20211104165457-3710d685f6c2
+go: downloading cloud.google.com/go/storage v1.18.2
+go: downloading github.com/ghodss/yaml v1.0.0
+go: downloading contrib.go.opencensus.io/exporter/prometheus v0.1.0
+go: downloading google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa
+go: downloading contrib.go.opencensus.io/exporter/stackdriver v0.13.4
+go: downloading github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e
+go: downloading github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
+go: downloading github.com/google/go-cmp v0.5.6
+go: downloading github.com/google/licensecheck v0.3.1
+go: downloading github.com/googleapis/gax-go/v2 v2.1.1
+go: downloading golang.org/x/sys v0.0.0-20211210111614-af8b64212486
+go: downloading github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7
+go: downloading github.com/imdario/mergo v0.3.12
+go: downloading github.com/emirpasic/gods v1.12.0
+go: downloading github.com/chris-ramon/douceur v0.2.0
+go: downloading github.com/Masterminds/squirrel v1.5.2
+go: downloading github.com/golang-migrate/migrate/v4 v4.15.1
+go: downloading github.com/lib/pq v1.10.2
+go: downloading cloud.google.com/go/cloudtasks v1.0.0
+go: downloading google.golang.org/grpc v1.43.0
+go: downloading google.golang.org/protobuf v1.27.1
+go: downloading github.com/evanw/esbuild v0.14.10
+go: downloading cloud.google.com/go/secretmanager v1.0.0
+go: downloading golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
+go: downloading github.com/prometheus/client_golang v1.7.1
+go: downloading cloud.google.com/go/monitoring v1.1.0
+go: downloading cloud.google.com/go/trace v1.0.0
+go: downloading github.com/census-instrumentation/opencensus-proto v0.3.0
+go: downloading github.com/go-git/gcfg v1.5.0
+go: downloading github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99
+go: downloading golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+go: downloading github.com/lann/builder v0.0.0-20180802200727-47ae307949d0
+go: downloading contrib.go.opencensus.io/integrations/ocsql v0.1.4
+go: downloading github.com/jackc/pgconn v1.10.1
+go: downloading github.com/jackc/pgx/v4 v4.14.1go: downloading github.com/aymerick/douceur v0.2.0
+go: downloading github.com/gorilla/css v1.0.0
+go: downloading github.com/hashicorp/go-multierror v1.1.0
+go: downloading go.uber.org/atomic v1.6.0
+go: downloading github.com/prometheus/common v0.10.0
+go: downloading github.com/prometheus/procfs v0.6.0
+go: downloading cloud.google.com/go/container v1.0.0
+go: downloading github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351
+go: downloading github.com/xanzy/ssh-agent v0.3.0
+go: downloading github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0
+go: downloading github.com/jackc/chunkreader/v2 v2.0.1
+go: downloading github.com/jackc/pgio v1.0.0
+go: downloading github.com/jackc/pgpassfile v1.0.0
+go: downloading github.com/jackc/pgproto3/v2 v2.2.0
+go: downloading github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b
+go: downloading gopkg.in/warnings.v0 v0.1.2
+go: downloading github.com/aws/aws-sdk-go v1.34.29
+go: downloading github.com/jackc/pgtype v1.9.1
+go: downloading github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369
+go: downloading github.com/jmespath/go-jmespath v0.4.0
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 37s 
+$ go env GOPATH 
+/home/miki/go
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ ls ~/go/bin 
+asmfmt  errcheck    godef      golangci-lint  goplay  gorename  gotests  iferr  keyify  pkgsite  staticcheck
+dlv     fillstruct  goimports  gomodifytags   gopls   gotags    guru     impl   motion  revive
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ pkgsite -http=:8080                               2022/08/18 18:18:16 Info: Listening on addr http://:8080
+2022/08/18 18:18:42 Info: FetchDataSource: fetching github.com/353solutions/nlp@latest
+2022/08/18 18:18:43 Info: LICENSE.txt license coverage too low ({Percent:0 Match:[]}), skipping
+2022/08/18 18:18:43 Info: FetchDataSource: fetched github.com/353solutions/nlp@latest in 921.448979ms with error <nil>
+2022/08/18 18:18:44 Warning: fetching url from deps.dev: Get "https://deps.dev/_/s/go/p/github.com%2F353solutions%2Fnlp/v/v0.0.0/exists": context deadline exceeded
+^C
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 50s 
+$ go test
+PASS
+ok  	github.com/353solutions/nlp	0.002s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.001s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ go test -v
+testing: warning: no tests to run
+PASS
+ok  	github.com/353solutions/nlp	0.001s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ go test -v
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.001s
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ go test -v
+testing: warning: no tests to run
+PASS
+ok  	github.com/353solutions/nlp	0.002s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ go test -v
+=== RUN   ExampleTokenize
+--- FAIL: ExampleTokenize (0.00s)
+got:
+[who s on first]
+want:
+[who s on first?]
+FAIL
+exit status 1
+FAIL	github.com/353solutions/nlp	0.003s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.001s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ pkgsite -http=:8080 
+2022/08/18 18:30:56 Info: Listening on addr http://:8080
+2022/08/18 18:31:08 Info: FetchDataSource: fetching github.com/353solutions/nlp@latest
+2022/08/18 18:31:09 Info: LICENSE.txt license coverage too low ({Percent:0 Match:[]}), skipping
+2022/08/18 18:31:09 Info: FetchDataSource: fetched github.com/353solutions/nlp@latest in 891.71268ms with error <nil>
+        	            	+([]string) (len=3) {
+        	            	  (string) (len=4) "what",
+        	            	- (string) (len=1) "s",
+        	            	  (string) (len=2) "on",
+        	Test:       	TestTokenize
+--- FAIL: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- FAIL: ExampleTokenize (0.00s)
+got:
+[who on first]
+want:
+[who s on first]
+FAIL
+exit status 1
+FAIL	github.com/353solutions/nlp	0.004s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ 
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.005s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go env GOPAT
+
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go env GOPATH
+/home/miki/go
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v
+=== RUN   TestTokenizeTable
+    nlp_test.go:37: 
+        	Error Trace:	/home/miki/teaching/practical-go/code/nlp/nlp_test.go:37
+        	            				/home/miki/teaching/practical-go/code/nlp/nlp_test.go:46
+        	Error:      	Received unexpected error:
+        	            	open tokenize_cases.toml: no such file or directory
+        	Test:       	TestTokenizeTable
+        	Messages:   	Unmarshal TOML
+--- FAIL: TestTokenizeTable (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+FAIL
+exit status 1
+FAIL	github.com/353solutions/nlp	0.006s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.007s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v ./...
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.006s
+=== RUN   TestStem
+=== RUN   TestStem/working:work
+=== RUN   TestStem/works:work
+=== RUN   TestStem/worked:work
+=== RUN   TestStem/work:work
+--- PASS: TestStem (0.00s)
+    --- PASS: TestStem/working:work (0.00s)
+    --- PASS: TestStem/works:work (0.00s)
+    --- PASS: TestStem/worked:work (0.00s)
+    --- PASS: TestStem/work:work (0.00s)
+PASS
+ok  	github.com/353solutions/nlp/stemmer	0.005s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v -race ./...
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	0.035s
+=== RUN   TestStem
+=== RUN   TestStem/working:work
+=== RUN   TestStem/works:work
+=== RUN   TestStem/worked:work
+=== RUN   TestStem/work:work
+--- PASS: TestStem (0.00s)
+    --- PASS: TestStem/working:work (0.00s)
+    --- PASS: TestStem/works:work (0.00s)
+    --- PASS: TestStem/worked:work (0.00s)
+    --- PASS: TestStem/work:work (0.00s)
+PASS
+ok  	github.com/353solutions/nlp/stemmer	0.033s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 13s 
+$ go test -v -race ./...
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+ok  	github.com/353solutions/nlp	(cached)
+=== RUN   TestStem
+=== RUN   TestStem/working:work
+=== RUN   TestStem/works:work
+=== RUN   TestStem/worked:work
+=== RUN   TestStem/work:work
+--- PASS: TestStem (0.00s)
+    --- PASS: TestStem/working:work (0.00s)
+    --- PASS: TestStem/works:work (0.00s)
+    --- PASS: TestStem/worked:work (0.00s)
+    --- PASS: TestStem/work:work (0.00s)
+PASS
+ok  	github.com/353solutions/nlp/stemmer	(cached)
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -v -race -cover ./... 
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+coverage: 100.0% of statements
+ok  	github.com/353solutions/nlp	0.035s	coverage: 100.0% of statements
+=== RUN   TestStem
+=== RUN   TestStem/working:work
+=== RUN   TestStem/works:work
+=== RUN   TestStem/worked:work
+=== RUN   TestStem/work:work
+--- PASS: TestStem (0.00s)
+    --- PASS: TestStem/working:work (0.00s)
+    --- PASS: TestStem/works:work (0.00s)
+    --- PASS: TestStem/worked:work (0.00s)
+    --- PASS: TestStem/work:work (0.00s)
+PASS
+coverage: 100.0% of statements
+ok  	github.com/353solutions/nlp/stemmer	0.024s	coverage: 100.0% of statements
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ go test -v -race -cover ./...
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   FuzzTokenize
+--- PASS: FuzzTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+PASS
+coverage: 100.0% of statements
+ok  	github.com/353solutions/nlp	0.035s	coverage: 100.0% of statements
+=== RUN   TestStem
+=== RUN   TestStem/working:work
+=== RUN   TestStem/works:work
+=== RUN   TestStem/worked:work
+=== RUN   TestStem/work:work
+--- PASS: TestStem (0.00s)
+    --- PASS: TestStem/working:work (0.00s)
+    --- PASS: TestStem/works:work (0.00s)
+    --- PASS: TestStem/worked:work (0.00s)
+    --- PASS: TestStem/work:work (0.00s)
+PASS
+coverage: 100.0% of statements
+ok  	github.com/353solutions/nlp/stemmer	(cached)	coverage: 100.0% of statements
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go test -fuzz .
+^C
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 15s 
+$ go test -fuzz . -fuzztime 10s -v
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+=== FUZZ  FuzzTokenize
+warning: starting with empty corpus
+fuzz: elapsed: 0s, execs: 0 (0/sec), new interesting: 0 (total: 0)
+fuzz: elapsed: 3s, execs: 77769 (25919/sec), new interesting: 71 (total: 71)
+fuzz: elapsed: 6s, execs: 126632 (16290/sec), new interesting: 78 (total: 78)
+fuzz: elapsed: 9s, execs: 148839 (7401/sec), new interesting: 82 (total: 82)
+fuzz: elapsed: 11s, execs: 148839 (0/sec), new interesting: 82 (total: 82)
+--- PASS: FuzzTokenize (11.01s)
+PASS
+ok  	github.com/353solutions/nlp	11.018s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 18s 
+$ go test -fuzz . -fuzztime 10s -v
+=== RUN   TestTokenizeTable
+=== RUN   TestTokenizeTable/Who's_on_first?
+=== RUN   TestTokenizeTable/What's_on_second?
+=== RUN   TestTokenizeTable/#00
+--- PASS: TestTokenizeTable (0.00s)
+    --- PASS: TestTokenizeTable/Who's_on_first? (0.00s)
+    --- PASS: TestTokenizeTable/What's_on_second? (0.00s)
+    --- PASS: TestTokenizeTable/#00 (0.00s)
+=== RUN   TestTokenize
+--- PASS: TestTokenize (0.00s)
+=== RUN   ExampleTokenize
+--- PASS: ExampleTokenize (0.00s)
+=== FUZZ  FuzzTokenize
+fuzz: elapsed: 0s, gathering baseline coverage: 0/82 completed
+fuzz: minimizing 47-byte failing input file
+fuzz: elapsed: 0s, gathering baseline coverage: 0/82 completed
+--- FAIL: FuzzTokenize (0.05s)
+    --- FAIL: FuzzTokenize (0.00s)
+        nlp_test.go:70: 0
+    
+    Failing input written to testdata/fuzz/FuzzTokenize/771e938e4458e983a736261a702e27c7a414fd660a15b63034f290b146d2f217
+    To re-run:
+    go test -run=FuzzTokenize/771e938e4458e983a736261a702e27c7a414fd660a15b63034f290b146d2f217
+FAIL
+exit status 1
+FAIL	github.com/353solutions/nlp	0.055s
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ cat testdata/fuzz/FuzzTokenize/771e938e4458e983a736261a702e27c7a414fd660a15b63034f290b146d2f217
+go test fuzz v1
+string("0")
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ mkdir -p cmd/nlpd
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl http://localhost:8080/health
+OK
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ go install github.com/rakyll/hey 
+no required module provides package github.com/rakyll/hey; to add it:
+	go get github.com/rakyll/hey
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go install github.com/rakyll/hey@latest
+go: downloading github.com/rakyll/hey v0.1.4
+go: downloading golang.org/x/net v0.0.0-20181017193950-04a2e542c03f
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 5s 
+❮ curl http://localhost:8080/health      
+OK
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ hey -n 10000 http://localhost:8080/health
+
+Summary:
+  Total:	0.2854 secs
+  Slowest:	0.0618 secs
+  Fastest:	0.0001 secs
+  Average:	0.0014 secs
+  Requests/sec:	35042.4349
+  
+  Total data:	30000 bytes
+  Size/request:	3 bytes
+
+Response time histogram:
+  0.000 [1]	|
+  0.006 [9855]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.012 [67]	|
+  0.019 [27]	|
+  0.025 [0]	|
+  0.031 [0]	|
+  0.037 [0]	|
+  0.043 [5]	|
+  0.049 [43]	|
+  0.056 [1]	|
+  0.062 [1]	|
+
+
+Latency distribution:
+  10% in 0.0002 secs
+  25% in 0.0004 secs
+  50% in 0.0008 secs
+  75% in 0.0013 secs
+  90% in 0.0026 secs
+  95% in 0.0034 secs
+  99% in 0.0083 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0000 secs, 0.0001 secs, 0.0618 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0105 secs
+  req write:	0.0001 secs, 0.0000 secs, 0.0437 secs
+  resp wait:	0.0009 secs, 0.0000 secs, 0.0425 secs
+  resp read:	0.0003 secs, 0.0000 secs, 0.0447 secs
+
+Status code distribution:
+  [200]	10000 responses
+
+
+
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl -i -d"Who's on first?" http://localhost:8080/tokenize
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 18 Aug 2022 18:12:17 GMT
+Content-Length: 31
+
+{"tokens":["who","on","first"]}%                                                                                                        
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl -i -d"Who's on first?" http://localhost:8080/tokenize
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 18 Aug 2022 18:14:22 GMT
+Content-Length: 31
+
+{"tokens":["who","on","first"]}%                                                                                                        
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl -i -d"Who's on first?" http://localhost:8080/tokenize
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 18 Aug 2022 18:14:54 GMT
+Content-Length: 41
+
+{"ok":true,"tokens":["who","on","first"]}%                                                                                              
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl -i -d"Who's on first?" http://localhost:8080/tokenize
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 18 Aug 2022 18:35:25 GMT
+Content-Length: 31
+
+{"tokens":["who","on","first"]}%                                                                                                        
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl http://localhost:8080/stem/running
+runn
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl http://localhost:8080/stem/works
+work
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl http://localhost:8080/debug/vars
+{
+"cmdline": ["/home/miki/teaching/practical-go/code/nlp/cmd/nlpd/__debug_bin"],
+"memstats": {"Alloc":345728,"TotalAlloc":345728,"Sys":12958736,"Lookups":0,"Mallocs":1127,"Frees":63,"HeapAlloc":345728,"HeapSys":3833856,"HeapIdle":2891776,"HeapInuse":942080,"HeapReleased":2859008,"HeapObjects":1064,"StackInuse":360448,"StackSys":360448,"MSpanInuse":37944,"MSpanSys":48960,"MCacheInuse":14400,"MCacheSys":15600,"BuckHashSys":3932,"GCSys":8055592,"OtherSys":640348,"NextGC":4194304,"LastGC":0,"PauseTotalNs":0,"PauseNs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"PauseEnd":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"NumGC":0,"NumForcedGC":0,"GCCPUFraction":0,"EnableGC":true,"DebugGC":false,"BySize":[{"Size":0,"Mallocs":0,"Frees":0},{"Size":8,"Mallocs":26,"Frees":0},{"Size":16,"Mallocs":409,"Frees":0},{"Size":24,"Mallocs":68,"Frees":0},{"Size":32,"Mallocs":76,"Frees":0},{"Size":48,"Mallocs":147,"Frees":0},{"Size":64,"Mallocs":54,"Frees":0},{"Size":80,"Mallocs":25,"Frees":0},{"Size":96,"Mallocs":14,"Frees":0},{"Size":112,"Mallocs":36,"Frees":0},{"Size":128,"Mallocs":7,"Frees":0},{"Size":144,"Mallocs":3,"Frees":0},{"Size":160,"Mallocs":32,"Frees":0},{"Size":176,"Mallocs":6,"Frees":0},{"Size":192,"Mallocs":1,"Frees":0},{"Size":208,"Mallocs":20,"Frees":0},{"Size":224,"Mallocs":2,"Frees":0},{"Size":240,"Mallocs":1,"Frees":0},{"Size":256,"Mallocs":9,"Frees":0},{"Size":288,"Mallocs":7,"Frees":0},{"Size":320,"Mallocs":8,"Frees":0},{"Size":352,"Mallocs":12,"Frees":0},{"Size":384,"Mallocs":2,"Frees":0},{"Size":416,"Mallocs":28,"Frees":0},{"Size":448,"Mallocs":0,"Frees":0},{"Size":480,"Mallocs":0,"Frees":0},{"Size":512,"Mallocs":0,"Frees":0},{"Size":576,"Mallocs":2,"Frees":0},{"Size":640,"Mallocs":7,"Frees":0},{"Size":704,"Mallocs":4,"Frees":0},{"Size":768,"Mallocs":0,"Frees":0},{"Size":896,"Mallocs":4,"Frees":0},{"Size":1024,"Mallocs":7,"Frees":0},{"Size":1152,"Mallocs":3,"Frees":0},{"Size":1280,"Mallocs":3,"Frees":0},{"Size":1408,"Mallocs":1,"Frees":0},{"Size":1536,"Mallocs":8,"Frees":0},{"Size":1792,"Mallocs":5,"Frees":0},{"Size":2048,"Mallocs":1,"Frees":0},{"Size":2304,"Mallocs":2,"Frees":0},{"Size":2688,"Mallocs":4,"Frees":0},{"Size":3072,"Mallocs":0,"Frees":0},{"Size":3200,"Mallocs":1,"Frees":0},{"Size":3456,"Mallocs":0,"Frees":0},{"Size":4096,"Mallocs":3,"Frees":0},{"Size":4864,"Mallocs":0,"Frees":0},{"Size":5376,"Mallocs":1,"Frees":0},{"Size":6144,"Mallocs":1,"Frees":0},{"Size":6528,"Mallocs":0,"Frees":0},{"Size":6784,"Mallocs":0,"Frees":0},{"Size":6912,"Mallocs":0,"Frees":0},{"Size":8192,"Mallocs":1,"Frees":0},{"Size":9472,"Mallocs":12,"Frees":0},{"Size":9728,"Mallocs":0,"Frees":0},{"Size":10240,"Mallocs":0,"Frees":0},{"Size":10880,"Mallocs":0,"Frees":0},{"Size":12288,"Mallocs":0,"Frees":0},{"Size":13568,"Mallocs":0,"Frees":0},{"Size":14336,"Mallocs":0,"Frees":0},{"Size":16384,"Mallocs":0,"Frees":0},{"Size":18432,"Mallocs":0,"Frees":0}]},
+"tokenize.calls": 0
+}
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl http://localhost:8080/stem/works
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl -d "What's on second?" http://localhost:8080/tokenize
+{"tokens":["what","on","second"]}%                                                                                                      
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+❮ curl http://localhost:8080/debug/vars                     
+{
+"cmdline": ["/home/miki/teaching/practical-go/code/nlp/cmd/nlpd/__debug_bin"],
+"memstats": {"Alloc":462624,"TotalAlloc":462624,"Sys":12958736,"Lookups":0,"Mallocs":1654,"Frees":140,"HeapAlloc":462624,"HeapSys":3866624,"HeapIdle":2801664,"HeapInuse":1064960,"HeapReleased":2703360,"HeapObjects":1514,"StackInuse":327680,"StackSys":327680,"MSpanInuse":37944,"MSpanSys":48960,"MCacheInuse":14400,"MCacheSys":15600,"BuckHashSys":3932,"GCSys":8086432,"OtherSys":609508,"NextGC":4194304,"LastGC":0,"PauseTotalNs":0,"PauseNs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"PauseEnd":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"NumGC":0,"NumForcedGC":0,"GCCPUFraction":0,"EnableGC":true,"DebugGC":false,"BySize":[{"Size":0,"Mallocs":0,"Frees":0},{"Size":8,"Mallocs":60,"Frees":0},{"Size":16,"Mallocs":638,"Frees":0},{"Size":24,"Mallocs":98,"Frees":0},{"Size":32,"Mallocs":83,"Frees":0},{"Size":48,"Mallocs":188,"Frees":0},{"Size":64,"Mallocs":79,"Frees":0},{"Size":80,"Mallocs":30,"Frees":0},{"Size":96,"Mallocs":18,"Frees":0},{"Size":112,"Mallocs":38,"Frees":0},{"Size":128,"Mallocs":12,"Frees":0},{"Size":144,"Mallocs":11,"Frees":0},{"Size":160,"Mallocs":35,"Frees":0},{"Size":176,"Mallocs":7,"Frees":0},{"Size":192,"Mallocs":1,"Frees":0},{"Size":208,"Mallocs":28,"Frees":0},{"Size":224,"Mallocs":4,"Frees":0},{"Size":240,"Mallocs":1,"Frees":0},{"Size":256,"Mallocs":18,"Frees":0},{"Size":288,"Mallocs":10,"Frees":0},{"Size":320,"Mallocs":8,"Frees":0},{"Size":352,"Mallocs":18,"Frees":0},{"Size":384,"Mallocs":2,"Frees":0},{"Size":416,"Mallocs":30,"Frees":0},{"Size":448,"Mallocs":0,"Frees":0},{"Size":480,"Mallocs":0,"Frees":0},{"Size":512,"Mallocs":3,"Frees":0},{"Size":576,"Mallocs":4,"Frees":0},{"Size":640,"Mallocs":7,"Frees":0},{"Size":704,"Mallocs":4,"Frees":0},{"Size":768,"Mallocs":0,"Frees":0},{"Size":896,"Mallocs":4,"Frees":0},{"Size":1024,"Mallocs":9,"Frees":0},{"Size":1152,"Mallocs":4,"Frees":0},{"Size":1280,"Mallocs":3,"Frees":0},{"Size":1408,"Mallocs":1,"Frees":0},{"Size":1536,"Mallocs":12,"Frees":0},{"Size":1792,"Mallocs":6,"Frees":0},{"Size":2048,"Mallocs":3,"Frees":0},{"Size":2304,"Mallocs":3,"Frees":0},{"Size":2688,"Mallocs":4,"Frees":0},{"Size":3072,"Mallocs":0,"Frees":0},{"Size":3200,"Mallocs":1,"Frees":0},{"Size":3456,"Mallocs":0,"Frees":0},{"Size":4096,"Mallocs":9,"Frees":0},{"Size":4864,"Mallocs":1,"Frees":0},{"Size":5376,"Mallocs":1,"Frees":0},{"Size":6144,"Mallocs":2,"Frees":0},{"Size":6528,"Mallocs":0,"Frees":0},{"Size":6784,"Mallocs":0,"Frees":0},{"Size":6912,"Mallocs":0,"Frees":0},{"Size":8192,"Mallocs":2,"Frees":0},{"Size":9472,"Mallocs":12,"Frees":0},{"Size":9728,"Mallocs":0,"Frees":0},{"Size":10240,"Mallocs":0,"Frees":0},{"Size":10880,"Mallocs":0,"Frees":0},{"Size":12288,"Mallocs":0,"Frees":0},{"Size":13568,"Mallocs":0,"Frees":0},{"Size":14336,"Mallocs":0,"Frees":0},{"Size":16384,"Mallocs":0,"Frees":0},{"Size":18432,"Mallocs":0,"Frees":0}]},
+"tokenize.calls": 1
+}
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ curl -d "What's on second?" http://localhost:8080/tokenize
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 
+$ go run ./cmd/nlpd 
+[nlpd] 2022/08/18 21:54:07 main.go:47: server starting on :8080
+^Csignal: interrupt
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 2s 
+$ NLPD_ADDR=:9999 go run ./cmd/nlpd
+[nlpd] 2022/08/18 21:54:14 main.go:47: server starting on :9999
+^Csignal: interrupt
+
+practical-go/code/nlp on  znga [✘!?] via go v1.19 took 4s 

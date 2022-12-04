@@ -1,0 +1,306 @@
+ps aux | wc -l
+351
+
+practical-go/code on  znga [!] via go v1.19 
+$ lscpu
+Architecture:           x86_64
+  CPU op-mode(s):       32-bit, 64-bit
+  Address sizes:        39 bits physical, 48 bits virtual
+  Byte Order:           Little Endian
+CPU(s):                 12
+  On-line CPU(s) list:  0-11
+Vendor ID:              GenuineIntel
+  Model name:           12th Gen Intel(R) Core(TM) i7-1255U
+    CPU family:         6
+    Model:              154
+    Thread(s) per core: 2
+    Core(s) per socket: 10
+    Socket(s):          1
+    Stepping:           4
+    CPU(s) scaling MHz: 83%
+    CPU max MHz:        4700.0000
+    CPU min MHz:        400.0000
+    BogoMIPS:           5224.00
+    Flags:              fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht
+                         tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc 
+                        cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pc
+                        id sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpui
+                        d_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep b
+                        mi2 erms invpcid rdt_a rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock
+                        _detect avx_vnni dtherm arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi umip pku ospke waitpk
+                        g gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize arch_lbr ibt flush_l1d arch_capabilities
+Caches (sum of all):    
+  L1d:                  352 KiB (10 instances)
+  L1i:                  576 KiB (10 instances)
+  L2:                   6.5 MiB (4 instances)
+  L3:                   12 MiB (1 instance)
+NUMA:                   
+  NUMA node(s):         1
+  NUMA node0 CPU(s):    0-11
+Vulnerabilities:        
+  Itlb multihit:        Not affected
+  L1tf:                 Not affected
+  Mds:                  Not affected
+  Meltdown:             Not affected
+  Mmio stale data:      Not affected
+  Retbleed:             Not affected
+  Spec store bypass:    Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:           Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:           Mitigation; Enhanced IBRS, IBPB conditional, RSB filling, PBRSB-eIBRS SW sequence
+  Srbds:                Not affected
+  Tsx async abort:      Not affected
+practical-go/code on  znga [!] via go v1.19 
+$ 
+
+practical-go/code on  znga [!?] via go v1.19 
+$ cd go_chan 
+
+practical-go/code/go_chan on  znga [!?] via go v1.19 
+$ go build -gcflags=-m
+# znga/go_chan
+./go_chan.go:41:14: inlining call to fmt.Println
+./go_chan.go:43:13: inlining call to fmt.Println
+./go_chan.go:10:13: inlining call to fmt.Println
+./go_chan.go:15:6: can inline main.func1
+./go_chan.go:16:15: inlining call to fmt.Println
+./go_chan.go:41:14: ... argument does not escape
+./go_chan.go:41:15: "inner" escapes to heap
+./go_chan.go:41:15: n escapes to heap
+./go_chan.go:43:13: ... argument does not escape
+./go_chan.go:43:14: "outer" escapes to heap
+./go_chan.go:43:14: n escapes to heap
+./go_chan.go:9:17: "goroutine" escapes to heap
+./go_chan.go:9:16: ... argument does not escape
+./go_chan.go:10:13: ... argument does not escape
+./go_chan.go:10:14: "main" escapes to heap
+./go_chan.go:15:6: func literal escapes to heap
+./go_chan.go:16:15: ... argument does not escape
+./go_chan.go:16:15: i escapes to heap
+
+practical-go/code/go_chan on  znga [!?] via go v1.19 
+$ go build -gcflags=-m
+# znga/go_chan
+./go_chan.go:41:14: inlining call to fmt.Println
+./go_chan.go:43:13: inlining call to fmt.Println
+./go_chan.go:10:13: inlining call to fmt.Println
+./go_chan.go:15:6: can inline main.func1
+./go_chan.go:16:15: inlining call to fmt.Println
+./go_chan.go:41:14: ... argument does not escape
+./go_chan.go:41:15: "inner" escapes to heap
+./go_chan.go:41:15: n escapes to heap
+./go_chan.go:43:13: ... argument does not escape
+./go_chan.go:43:14: "outer" escapes to heap
+./go_chan.go:43:14: n escapes to heap
+./go_chan.go:9:17: "goroutine" escapes to heap
+./go_chan.go:9:16: ... argument does not escape
+./go_chan.go:10:13: ... argument does not escape
+./go_chan.go:10:14: "main" escapes to heap
+./go_chan.go:15:6: func literal escapes to heap
+./go_chan.go:16:15: ... argument does not escape
+./go_chan.go:16:15: i escapes to heap
+practical-go/code/go_chan on  znga [!?] via go v1.19 
+$ go clean
+
+practical-go/code/go_chan on  znga [!?] via go v1.19 
+❮ go build -gcflags=-m
+# znga/go_chan
+./go_chan.go:42:14: inlining call to fmt.Println
+./go_chan.go:44:13: inlining call to fmt.Println
+./go_chan.go:10:13: inlining call to fmt.Println
+./go_chan.go:15:6: can inline main.func1
+./go_chan.go:42:14: ... argument does not escape
+./go_chan.go:42:15: "inner" escapes to heap
+./go_chan.go:42:15: n escapes to heap
+./go_chan.go:44:13: ... argument does not escape
+./go_chan.go:44:14: "outer" escapes to heap
+./go_chan.go:44:14: n escapes to heap
+./go_chan.go:14:3: moved to heap: i
+./go_chan.go:9:17: "goroutine" escapes to heap
+./go_chan.go:9:16: ... argument does not escape
+./go_chan.go:10:13: ... argument does not escape
+./go_chan.go:10:14: "main" escapes to heap
+./go_chan.go:15:6: func literal escapes to heap
+
+practical-go/code/go_chan on  znga [!?] via go v1.19 
+$ go clean
+
+practical-go/code/go_chan on  znga [!?] via go v1.19 
+$ bash sleep_sort.sh 2 3 1
+1
+2
+3
+practical-go/code/go_chan on  znga [!?] via go v1.19 took 3s 
+$ cd ..
+
+practical-go/code on  znga [!?] via go v1.19 
+$ cp ../data/taxi_check.go taxi 
+
+practical-go/code on  znga [!?] via go v1.19 
+$ ls /tmp/taxi 
+sha256sum.txt    taxi-02.csv.bz2  taxi-04.csv.bz2  taxi-06.csv.bz2  taxi-08.csv.bz2  taxi-10.csv.bz2
+taxi-01.csv.bz2  taxi-03.csv.bz2  taxi-05.csv.bz2  taxi-07.csv.bz2  taxi-09.csv.bz2
+
+practical-go/code on  znga [!?] via go v1.19 
+$ cat /tmp/taxi/sha256sum.txt 
+0c4ccc63a912bbd6d45174251415c089522e5c0e75286794ab1f86cb8e2561fd  taxi-01.csv
+f427b5880e9164ec1e6cda53aa4b2d1f1e470da973e5b51748c806ea5c57cbdf  taxi-02.csv
+4e251e9e98c5cb7be8b34adfcb46cc806a4ef5ec8c95ba9aac5ff81449fc630c  taxi-03.csv
+753810f3402fce2a9a7d79b41164e002c0d66d74ca784bf08106185508c1b2d0  taxi-04.csv
+4991682b108be8979561971a74a5033c918f5d84d2f1a07b3c07024f861dec8b  taxi-05.csv
+e7f8d15066c9ccc8a29003b066c21c0dd9380117abd1ecca8eb8fb2e73eefc42  taxi-06.csv
+1f669e8de7ee1101a93910d1c74cfd599d2f5e9b2c72976697f0ec6e136399e4  taxi-07.csv
+3816b7085d518d4349838d7a4070a107f00f69d9a2b4f9cebc40e6c975d7b387  taxi-08.csv
+3242bcc29b454f0911da3256de11bc2a37e172148565de677d52270beb351a04  taxi-09.csv
+242317002ec8342ead8260f07b5fa9f3b7f9671714ffc4be7fd891098fb15cd2  taxi-10.csv
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./taxi
+error: /tmp/taxi/taxi-06.csv.bz2 mismatch
+processed 10 files in 9.036476525s
+exit status 1
+
+practical-go/code on  znga [!?] via go v1.19 took 9s 
+$echo 12.54/2.4 | bc -l
+5.22500000000000000000
+
+practical-go/code on  znga [!?] via go v1.19 
+❮ echo 11.4/2.4 | bc -l 
+4.75000000000000000000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ echo 6.6/2.4| bc -l
+2.75000000000000000000
+
+practical-go/code on  znga [!?] via go v1.19 
+❮ cd exercism/go/react                              
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./taxi 
+error: /tmp/taxi/taxi-06.csv.bz2 mismatch
+processed 10 files in 2.348632941s
+exit status 1
+
+practical-go/code on  znga [!?] via go v1.19 took 2s 
+$ echo 9.03/2.34 | bc -l
+3.85897435897435897435
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./counter 
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$go run ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./counter
+68554
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run ./counter
+84571
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+==================
+WARNING: DATA RACE
+Read at 0x00c00013e008 by goroutine 9:
+  main.main.func1()
+      /home/miki/teaching/practical-go/code/counter/counter.go:18 +0xa8
+
+Previous write at 0x00c00013e008 by goroutine 16:
+  main.main.func1()
+      /home/miki/teaching/practical-go/code/counter/counter.go:18 +0xba
+
+Goroutine 9 (running) created at:
+  main.main()
+      /home/miki/teaching/practical-go/code/counter/counter.go:15 +0x8d
+
+Goroutine 16 (running) created at:
+  main.main()
+      /home/miki/teaching/practical-go/code/counter/counter.go:15 +0x8d
+==================
+57931Found 1 data race(s)
+exit status 66
+
+practical-go/code on  znga [!?] via go v1.19 took 3s 
+❮ go run -race ./counter
+==================
+WARNING: DATA RACE
+Read at 0x00c0000b4008 by goroutine 8:
+  main.main.func1()
+      /home/miki/teaching/practical-go/code/counter/counter.go:18 +0xa8
+
+Previous write at 0x00c0000b4008 by goroutine 7:
+  main.main.func1()
+      /home/miki/teaching/practical-go/code/counter/counter.go:18 +0xba
+
+Goroutine 8 (running) created at:
+  main.main()
+      /home/miki/teaching/practical-go/code/counter/counter.go:15 +0x8d
+
+Goroutine 7 (running) created at:
+  main.main()
+      /home/miki/teaching/practical-go/code/counter/counter.go:15 +0x8d
+==================
+66560
+Found 1 data race(s)
+exit status 66
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ 
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ 
+
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+practical-go/code on  znga [!?] via go v1.19 
+$ go run -race ./counter
+100000
+
+practical-go/code on  znga [!?] via go v1.19 
+$ man 2 select
+
+practical-go/code on  znga [!?] via go v1.19 took 25s 
+$ cp ../data/rtb.go rtb 
+
+practical-go/code on  znga [!?] via go v1.19 
+$

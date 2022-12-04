@@ -1,0 +1,84 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"~/projects/go/src/runtime/slice.go" 350L, 10186
+./game.go:27:25: ... argument does not escape
+./game.go:27:26: x escapes to heap
+./game.go:27:26: y escapes to heap
+./game.go:27:61: maxX escapes to heap
+./game.go:27:67: maxY escapes to heap
+./game.go:7:13: ... argument does not escape
+./game.go:7:13: i1 escapes to heap
+./game.go:8:12: ... argument does not escape
+./game.go:8:13: i1 escapes to heap
+./game.go:11:12: ... argument does not escape
+./game.go:11:13: i2 escapes to heap
+./game.go:17:12: ... argument does not escape
+./game.go:17:13: i3 escapes to heap
+./game.go:18:13: ... argument does not escape
+./game.go:19:13: ... argument does not escape
+
+practical-go/code/game on  znga [!?] via go v1.19 
+$ rm game
+
+practical-go/code/game on  znga [!?] via go v1.19 
+$ go clean
+
+practical-go/code/game on  znga [!?] via go v1.19 
+$ staticcheck .
+
+practical-go/code/game on  znga [!?] via go v1.19 
+$ staticcheck game.go 
+
+practical-go/code/game on  znga [!?] via go v1.19 
+$ go vet .
+# znga/game
+./game.go:65:9: fmt.Sprintf format %s with arg k causes recursive (znga/game.Key).String method call
+practical-go/code/game on  znga [!?] via go v1.19 
+$ go test -v
+# znga/game
+./game.go:65:9: fmt.Sprintf format %s with arg k causes recursive (znga/game.Key).String method call
+
+practical-go/code/game on  znga [!?] via go v1.19 
+❮ staticcheck game.go
+game.go:69:5: var r is unused (U1000)
+game.go:69:28: error parsing regexp: missing closing ]: `[A-` (SA1000)
+
+practical-go/code/game on  znga [!?] via go v1.19 
+$ cd ..
+
+practical-go/code on  znga [!?] via go v1.19 
+$ cp ../data/sherlock.txt freq 
+
+practical-go/code on  znga [!?] via go v1.19 
+$
