@@ -5,51 +5,66 @@ import (
 	"unicode/utf8"
 )
 
-/*
-banner("Go", 6)
-
-  Go
-------
-*/
-
 func main() {
 	banner("Go", 6)
 	banner("G☺", 6)
 
-	fmt.Println("Go:", len("Go"))
-	fmt.Println("G☺:", len("G☺")) // length in bytes
-
 	s := "G☺"
-	b := s[0]
-	fmt.Printf("%c %T\n", b, b)
-	fmt.Println(s[:1]) // slicing (half-open range), on bytes
-	fmt.Println(s[1:])
-	// fmt.Println(s[:2]) // will take G and first byte of ☺
-	// s[0] = 'g' // string are immutable
-
-	for i, c := range "G☺!" {
-		fmt.Printf("%d: %c %T\n", i, c, c)
+	fmt.Println("len:", len(s))
+	// code point = rune ~= unicode character
+	for i, r := range s {
+		fmt.Println(i, r)
+		if i == 0 {
+			fmt.Printf("%c of type %T\n", r, r)
+			// rune (int32)
+		}
 	}
 
-	// byte = uint8
-	// rune = int32 (code point, character)
+	b := s[0]
+	fmt.Printf("%c of type %T\n", b, b)
+	// byte (uint8)
 
 	x, y := 1, "1"
 	fmt.Printf("x=%v, y=%v\n", x, y)
-	fmt.Printf("x=%#v, y=%#v\n", x, y)
-	// fmt.Sprintf() // return new string
+	fmt.Printf("x=%#v, y=%#v\n", x, y) // Use #v in debug/log
+
+	fmt.Printf("%20s!\n", s)
+
+	fmt.Println("g", isPalindrome("g"))
+	fmt.Println("go", isPalindrome("go"))
+	fmt.Println("gog", isPalindrome("gog"))
+	fmt.Println("g☺g", isPalindrome("g☺g"))
+}
+
+// isPalindrome("g") -> true
+// isPalindrome("go") -> false
+// isPalindrome("gog") -> true
+// isPalindrome("gogo") -> false
+func isPalindrome(s string) bool {
+	rs := []rune(s) // get slice of runes out of s
+	for i := 0; i < len(rs)/2; i++ {
+		if rs[i] != rs[len(rs)-i-1] {
+			return false
+		}
+	}
+	return true
 }
 
 func banner(text string, width int) {
-	// offset := (width - len(text)) / 2
-	offset := (width - utf8.RuneCountInString(text)) / 2
-	for i := 0; i < offset; i++ {
+	padding := (width - utf8.RuneCountInString(text)) / 2 // BUG: len is in bytes
+	// padding := (width - len(text)) / 2 // BUG: len is in bytes
+	for i := 0; i < padding; i++ {
 		fmt.Print(" ")
 	}
 	fmt.Println(text)
-
 	for i := 0; i < width; i++ {
 		fmt.Print("-")
 	}
 	fmt.Println()
 }
+
+/*
+multi
+line
+comment
+*/

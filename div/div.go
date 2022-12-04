@@ -1,32 +1,37 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
-	/*
-		fmt.Println(div(7, 3))
-		fmt.Println(div(7, 0)) // panic
-	*/
-	fmt.Println(safeDiv(7, 3))
-	fmt.Println(safeDiv(7, 0))
+	// fmt.Println(div(1, 0))
+	fmt.Println(safeDiv(1, 0))
+	fmt.Println(safeDiv(7, 2))
 }
 
-func safeDiv(x, y int) (q int, err error) {
-	// q & err are local variables (like x & y)
-	// catch/except
+// named return values
+func safeDiv(a, b int) (q int, err error) {
+	// q & err are local variables in safeDiv
+	// (just like a & b)
 	defer func() {
+		// e's type is any (or interface{}) *not* error
 		if e := recover(); e != nil {
-			// fmt.Printf("error: %#v\n", e)
+			log.Println("ERROR:", e)
 			err = fmt.Errorf("%v", e)
 		}
 	}()
 
-	// q = div(x, y)
-	// return
-	return div(x, y), nil
+	// panic("ouch!")
+
+	return a / b, nil
+	/* Miki don't like this kind of programming
+	q = a / b
+	return
+	*/
 }
 
-// div is from external package
-func div(x, y int) int {
-	return x / y
+func div(a, b int) int {
+	return a / b
 }

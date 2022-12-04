@@ -1,73 +1,78 @@
 package nlp
 
 import (
-	"os"
+	"strings"
 	"testing"
 
+	"github.com/BurntSushi/toml"
 	"github.com/stretchr/testify/require"
-	"gopkg.in/yaml.v3"
 )
 
-type TokCase struct {
+/*
+var tokenizeCases = []struct { // anonymous struct
+	text   string
+	tokens []string
+}{
+	{"Who's on first?", []string{"who", "s", "on", "first"}},
+	{"", nil},
+}
+*/
+
+type tokenizeCase struct {
 	Text   string
 	Tokens []string
 }
 
-func loadTokenizeCases(t *testing.T) []TokCase {
-	file, err := os.Open("testdata/tokenize_cases.yml")
-	require.NoError(t, err)
-	defer file.Close()
-
-	var tc []TokCase
-	err = yaml.NewDecoder(file).Decode(&tc)
-	require.NoError(t, err)
-	return tc
-}
-
-// Exercise: Read test cases from tokenize_cases.yml
-// instead of in-memory testCases
-func TestTokenizeTable(t *testing.T) {
+func loadTokenizeCases(t *testing.T) []tokenizeCase {
 	/*
-		testCases := []struct { // anonymous struct
-			text   string
-			tokens []string
-		}{
-			{"Who's on first?", []string{"who", "s", "on", "first"}},
-			{"What's on second?", []string{"what", "s", "on", "second"}},
-			{"", nil},
-		}
+		data, err := ioutil.ReadFile("tokenize_cases.toml")
+		require.NoError(t, err, "Read file")
 	*/
 
+	var testCases struct {
+		Cases []tokenizeCase
+	}
+
+	// err = toml.Unmarshal(data, &testCases)
+	_, err := toml.DecodeFile("testdata/tokenize_cases.toml", &testCases)
+	require.NoError(t, err, "Unmarshal TOML")
+	return testCases.Cases
+}
+
+// Exercise: Read test cases from tokenize_cases.toml
+// Use github.com/BurntSushi/toml to read TOML
+
+func TestTokenizeTable(t *testing.T) {
+	// for _, tc := range tokenizeCases {
 	for _, tc := range loadTokenizeCases(t) {
-		name := tc.Text
-		if name == "" {
-			name = "<empty>"
-		}
-		t.Run(name, func(t *testing.T) {
+		t.Run(tc.Text, func(t *testing.T) {
 			tokens := Tokenize(tc.Text)
 			require.Equal(t, tc.Tokens, tokens)
 		})
 	}
-
 }
 
 func TestTokenize(t *testing.T) {
-	text := "Who's on first?"
+	text := "What's on second?"
+	expected := []string{"what", "on", "second"}
 	tokens := Tokenize(text)
-	expected := []string{"who", "on", "first"}
-
 	require.Equal(t, expected, tokens)
-
-	/* before testify
+	/* Before testify
+	// if tokens != expected { // Can't compare slices with == in Go (only to nil)
 	if !reflect.DeepEqual(expected, tokens) {
-		t.Fatalf("expected: #%v, got: %#v", expected, tokens)
+		t.Fatalf("expected %#v, got %#v", expected, tokens)
 	}
 	*/
 }
 
-func TestInCI(t *testing.T) {
-	// Use "BUILD_NUMBER" in Jenkins
-	if os.Getenv("CI") == "" {
-		t.Skip("not in CI")
-	}
+func FuzzTokenize(f *testing.F) {
+	f.Fuzz(func(t *testing.T, text string) {
+		tokens := Tokenize(text)
+		lText := strings.ToLower(text)
+		for _, tok := range tokens {
+			if !strings.Contains(lText, tok) {
+				t.Fatal(tok)
+			}
+		}
+	})
 }

@@ -1,51 +1,25 @@
-/*
-JSON <-> Go
-true/false <-> true/false (bool)
-string <-> string
-null <-> nil
-number <-> float64, float32, int8, int16, int32, int64, int, uint8, ...
-array <-> []int, []string, ..., []any
-object <-> struct, map[string]any
-
-MIA: time.Time, []byte (binary), ... (also comments)
-
-encoding/json API
-File-ish
-Go -> JSON via io.Writer: json.Encoder
-JSON -> Go via io.Reader: json.Decoder
-
-In-memory
-Go -> JSON via []byte: Marshal
-JSON -> Go via []byte: Unmarshal
-*/
 package main
 
 import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"net/url"
 	"time"
 )
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Millisecond)
 	defer cancel()
-	name, repos, err := userInfo(ctx, "tebeka")
-	if err != nil {
-		log.Fatalf("error: %s", err)
-	}
-	fmt.Println(name, repos)
+	fmt.Println(githubInfo(ctx, "tebeka"))
 }
 
-// userInfo return user name and number of public repos
-func userInfo(ctx context.Context, login string) (string, int, error) {
-	u := "https://api.github.com/users/" + url.PathEscape(login)
-
-	// resp, err := http.Get(u)
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, nil)
+// githubInfo returns name and number of public repos for login
+func githubInfo(ctx context.Context, login string) (string, int, error) {
+	url := "https://api.github.com/users/" + url.PathEscape(login)
+	// resp,err := http.Get(url)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return "", 0, err
 	}
@@ -56,40 +30,46 @@ func userInfo(ctx context.Context, login string) (string, int, error) {
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		return "", 0, fmt.Errorf(resp.Status)
+		return "", 0, fmt.Errorf("%#v - %s", url, resp.Status)
 	}
 
-	// We can't use map[string]string for header since:
-	// - HTTP headers as case insensitive
-	// - HTTP header can repeat (resp.Header.Values)
-	// fmt.Println("content-type:", resp.Header.Get("Content-Type"))
+	defer resp.Body.Close()
 
-	// io.Copy(os.Stdout, resp.Body)
-	// var r userReply
-	var r struct { // anonymous struct, avoid name pollution
-		// Field names must be exported to work with encoding/json
-		Name string `json:"name"`
+	// fmt.Printf("Content-Type: %s\n", resp.Header.Get("Content-Type"))
+	// var r Reply
+
+	var r struct { // anonymous struct
+		Name string
 		// Public_Repos int
-		NumRepos int `json:"public_repos"` // field tag
+		NumRepos int `json:"public_repos"`
 	}
-	// var i int // i == 0
 	dec := json.NewDecoder(resp.Body)
 	if err := dec.Decode(&r); err != nil {
-		return "", 0, fmt.Errorf("can't decode - %s", err)
+		return "", 0, err
 	}
-	return r.Name, r.NumRepos, nil
-	// fmt.Println(r)
-	// fmt.Printf("%#v\n", r)
-	// See %v, %+v, %#v
 
-	// json.NewEncoder(os.Stdout).Encode(r)
+	return r.Name, r.NumRepos, nil
 }
 
 /*
-type userReply struct {
-	// Field names must be exported to work with encoding/json
-	Name string `json:"name"`
+type Reply struct {
+	Name string
 	// Public_Repos int
-	NumRepos int `json:"public_repos"` // field tag
+	NumRepos int `json:"public_repos"`
 }
+*/
+
+/* JSON <-> Go
+true/false <-> true/false
+string <-> string
+null <-> nil
+number <-> float64, float32, int8, int16, int32, int64, int, uint8, ...
+array <-> []any ([]interface{})
+object <-> map[string]any, struct
+
+encoding/json API
+JSON -> io.Reader -> Go: json.Decoder
+JSON -> []byte -> Go: json.Unmarshal
+Go -> io.Writer -> JSON: json.Encoder
+Go -> []byte -> JSON: json.Marshal
 */

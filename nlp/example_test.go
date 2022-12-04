@@ -3,7 +3,7 @@ package nlp_test
 import (
 	"fmt"
 
-	"github.com/ardanlabs/practical-go/nlp"
+	"github.com/353solutions/nlp"
 )
 
 func ExampleTokenize() {
@@ -14,3 +14,10 @@ func ExampleTokenize() {
 	// Output:
 	// [who on first]
 }
+
+/*
+Test discovery:
+For every file ending with _test.go, run every function that matches either:
+- Example[A-Z_].*, body must include // Output: comment
+- Test[A-Z_].*
+*/

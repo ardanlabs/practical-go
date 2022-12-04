@@ -1,5 +1,8 @@
 package main
 
+// Q: What is the most common word (ignoring case) in sherlock.txt?
+// Word frequency
+
 import (
 	"bufio"
 	"fmt"
@@ -10,84 +13,124 @@ import (
 	"strings"
 )
 
-var (
-	// `` is a "raw" string: \ is just a \ and you can have multiline strings
-
-	// "Who's on first?" -> [Who s on first]
-	wordRe = regexp.MustCompile(`[a-zA-Z]+`)
-)
-
 func main() {
 	file, err := os.Open("sherlock.txt")
+	// goland: freq/sherlock.txt
 	if err != nil {
 		log.Fatalf("error: %s", err)
 	}
 	defer file.Close()
 
-	// mapDemo()
-	freq, err := frequency(file)
+	w, err := mostCommon(file)
 	if err != nil {
 		log.Fatalf("error: %s", err)
 	}
-	fmt.Println(maxWord(freq))
+	fmt.Println(w)
+	// mapDemo()
+
+	/*
+		// path := "C:\to\new\report.csv"
+		// `s` is a "raw" string, \ is just a \
+		path := `C:\to\new\report.csv`
+		fmt.Println(path)
+	*/
 }
 
-// What is the most common word, ignoring case, in sherlock.txt?
-// Word frequency
+func mostCommon(r io.Reader) (string, error) {
+	freqs, err := wordFrequency(r)
+	if err != nil {
+		return "", err
+	}
+	return maxWord(freqs)
+}
 
-func maxWord(freq map[string]int) string {
-	maxW, maxN := "", 0
-	for w, n := range freq {
-		if n > maxN {
-			maxW, maxN = w, n
+/* You can also use raw strings to create mutli lines strings
+var request = `GET /ip HTTP/1.1
+Host: httpbin.org
+Connection: Close
+
+`
+*/
+
+// "Who's on first?" -> [Who s on first]
+var wordRe = regexp.MustCompile(`[a-zA-Z]+`)
+
+/* Will run before main
+func init() {
+	// ...
+}
+*/
+
+func mapDemo() {
+	var stocks map[string]float64 // symbol -> price
+	sym := "TTWO"
+	price := stocks[sym]
+	fmt.Printf("%s -> $%.2f\n", sym, price)
+
+	if price, ok := stocks[sym]; ok {
+		fmt.Printf("%s -> $%.2f\n", sym, price)
+	} else {
+		fmt.Printf("%s not found\n", sym)
+	}
+
+	/*
+		stocks = make(map[string]float64)
+		stocks[sym] = 136.73
+	*/
+	stocks = map[string]float64{
+		sym:    137.73,
+		"AAPL": 172.35,
+	}
+	if price, ok := stocks[sym]; ok {
+		fmt.Printf("%s -> $%.2f\n", sym, price)
+	} else {
+		fmt.Printf("%s not found\n", sym)
+	}
+
+	for k := range stocks { // keys
+		fmt.Println(k)
+	}
+
+	for k, v := range stocks { // key & value
+		fmt.Println(k, "->", v)
+	}
+
+	for _, v := range stocks { // values
+		fmt.Println(v)
+	}
+
+	delete(stocks, "AAPL")
+	fmt.Println(stocks)
+	delete(stocks, "AAPL") // no panic
+}
+
+func maxWord(freqs map[string]int) (string, error) {
+	if len(freqs) == 0 {
+		return "", fmt.Errorf("empty map")
+	}
+
+	maxN, maxW := 0, ""
+	for word, count := range freqs {
+		if count > maxN {
+			maxN, maxW = count, word
 		}
 	}
-	return maxW
+
+	return maxW, nil
 }
 
-// frequency return map of word -> count (ignoring case)
-func frequency(r io.Reader) (map[string]int, error) {
+func wordFrequency(r io.Reader) (map[string]int, error) {
 	s := bufio.NewScanner(r)
-	freq := make(map[string]int)
+	freqs := make(map[string]int) // word -> count
 	for s.Scan() {
-		words := wordRe.FindAllString(s.Text(), -1)
+		words := wordRe.FindAllString(s.Text(), -1) // current line
 		for _, w := range words {
-			freq[strings.ToLower(w)]++
+			freqs[strings.ToLower(w)]++
 		}
 	}
 	if err := s.Err(); err != nil {
 		return nil, err
 	}
-	return freq, nil
-}
 
-func mapDemo() {
-	// var stocks map[string]float64 // panic on add
-
-	stocks := map[string]float64{
-		"AAPL": 1.2,
-		"IBM":  3.4,
-	}
-	price := stocks["GOOG"]
-	fmt.Println(price) // 0
-	price, ok := stocks["GOOG"]
-	if ok {
-		fmt.Println(price)
-	} else {
-		fmt.Println("GOOG not found")
-	}
-
-	if _, ok := stocks["GOOG"]; !ok {
-		fmt.Println("GOOG not found")
-	}
-
-	stocks["GOOG"] = 5.6 // add
-
-	for s := range stocks { // keys
-		fmt.Println(s)
-	}
-
-	for s, p := range stocks { // key + value
-		fmt.Println(s, "->", p)
-	}
+	return freqs, nil
 }

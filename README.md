@@ -1,6 +1,7 @@
 # Practical Go for Developers
 
-This repo contains the material for the "Practical Go for Developers" class.
+This repo contains the material for the "Practical Go Foundations" class.
+The code & links are synced with the [online class](for Developers).
 
 This is an assorted collection of exercises for teaching, not a real Go project.
 
@@ -28,10 +29,10 @@ This is an assorted collection of exercises for teaching, not a real Go project.
 - [hw.go](hw/hw.go) - Hello World
     - `GOOS=drawin go build` (also `GOARCH`)
 - [banner.go](banner/banner.go) - Strings & printing
-- [euler4.go](euler4/euler4.go) - Solving [Euler 4](https://projecteuler.net/problem=4)
 - [github.go](github/github.go) - Calling REST APIs
-- [kill_server.go](kill_server/kill_server.go) - Working with files, error handling
 - [sha1.go](sha1/sha1.go) - Working with `io.Reader` & `io.Writer`
+
+[Terminal Log](_extra/day-1.log)
 
 
 ### Links
@@ -86,14 +87,19 @@ This is an assorted collection of exercises for teaching, not a real Go project.
 - [slices.go](slices/slices.go) - Working with slices
 - [game.go](game/game.go) - Structs, methods & interfaces
 - [empty.go](empty/empty.go) - The empty interface, type assertions
-- [stats.go](stats/stats.go) - Generics demo
 - [div.go](div/div.go) - Catching panics
 - [freq.go](freq/freq.go) - Most common word (files, regular expressions, maps)
 
+[Terminal Log](_extra/day-2.log)
+
+### Exercises
+
+- Read and understand the [sort package examples](https://pkg.go.dev/sort/#pkg-examples)
+- Implement `sortByDistance(players []Player, x, y int)` in `game.go`
+- Change `mostCommon` to return the most common `n` words (e.g. `func mostCommon(r io.Reader, n int) ([]string, error)`)
 
 ### Links
 
-- [Functional options for friendly APIs](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)
 - [regex101](https://regex101.com/) - Regular expression builder
 - [Go Proverbs](https://go-proverbs.github.io/) - Think about them ☺
 - [sort examples](https://pkg.go.dev/sort/#pkg-examples) - Read and try to understand
@@ -108,6 +114,7 @@ This is an assorted collection of exercises for teaching, not a real Go project.
     - [Defer, Panic and Recover](https://go.dev/blog/defer-panic-and-recover)
     - [errors](https://pkg.go.dev/errors/) package ([Go 1.13](https://go.dev/blog/go1.13-errors))
     - [pkg/errors](https://github.com/pkg/errors)
+
 
 ### Data & Other
 
@@ -132,18 +139,22 @@ This is an assorted collection of exercises for teaching, not a real Go project.
 - [go_chan.go](go_chan/go_chan.go) - Goroutines & channels
     - [sleep_sort.sh](go_chan/sleep_sort.sh) - Sleep sort in bash
 - [taxi_check.go](taxi/taxi_check.go) - Turn sequential code to parallel
-- [sync.go](sync/sync.go) - Using sync.Once & sync.WaitGroup
+- [sites_time.go](sites_time/sites_time.go) - Using sync.WaitGroup
+- [payment.go](payment/payment.go) - Using sync.Once & sync.WaitGroup
 - [counter.go](counter/counter.go) - Using the race detector, sync.Mutex and sync/atomic
-- [fan_in.go](fan_in/fan_in.go) - "fan in" with channels
 - [select.go](select/select.go) - Using `select`
 - [rtb.go](rtb/rtb.go) - Using `context` for cancellations
 
+[Terminal Log](_extra/day-3.log)
+
+### Exercise
+
+In `taxi_check.go`
+- Limit the number of goroutines to "n". Which "n" yields the best results?
+- Cancel all goroutines once there's an error or mismatch in signature
 
 ### Links
 
-- multiple errors
-    - [go.uber.org/multierr](https://pkg.go.dev/go.uber.org/multierr)
-    - [github.com/hashicorp/go-multierror](https://pkg.go.dev/github.com/hashicorp/go-multierror)
 - [The race detector](https://go.dev/doc/articles/race_detector)
 - [Uber Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md)
 - [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)
@@ -158,8 +169,6 @@ This is an assorted collection of exercises for teaching, not a real Go project.
 - [Computer Latency at Human Scale](https://twitter.com/jordancurve/status/1108475342468120576/photo/1)
 - [Concurrency is not Parallelism](https://www.youtube.com/watch?v=cN_DpYBzKso) by Rob Pike
 - [Scheduling in Go](https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html)
-
-- [mapstructure](https://pkg.go.dev/github.com/mitchellh/mapstructure#section-readme) - Parse arbitrary JSON
 
 ### Data & Other
 
@@ -195,36 +204,36 @@ Adding metrics & logging
 `nlp` project
 
 <pre>
-├── <a href="nlp/go.mod">go.mod</a> - Project & dependencies
-├── <a href="nlp/nlp.go">nlp.go</a> - Package code
-├── <a href="nlp/doc.go">doc.go</a> - Package level documentation
-├── <a href="nlp/nlp_test.go">nlp_test.go</a> - Test & benchmark file
-├── <a href="nlp/example_test.go">example_test.go</a> - Testable example
+├── <a href="html/nlp/go.mod.html">go.mod</a> - Project & dependencies
+├── <a href="html/nlp/nlp.go.html">nlp.go</a> - Package code
+├── <a href="html/nlp/doc.go.html">doc.go</a> - Package level documentation
+├── <a href="html/nlp/nlp_test.go.html">nlp_test.go</a> - Test & benchmark file
+├── <a href="html/nlp/example_test.go.html">example_test.go</a> - Testable example
 ├── stemmer - Sub module
-│   ├── <a href="nlp/stemmer/stemmer.go">stemmer.go</a>
-│   └── <a href="nlp/stemmer/stemmer_test.go">stemmer_test.go</a>
+│   ├── <a href="html/nlp/stemmer/stemmer.go.html">stemmer.go</a>
+│   └── <a href="html/nlp/stemmer/stemmer_test.go.html">stemmer_test.go</a>
 ├── testdata - Test data
-│      └── <a href="nlp/testdata/tokenize_cases.yml">tokenize_cases.yml</a> - Test cases
+│      └── <a href="html/nlp/testdata/tokenize_cases.yml.html">tokenize_cases.yml</a> - Test cases
 └── cmd  - Executables
-    └── httpd - HTTP server
-        ├── <a href="nlp/cmd/httpd/main.go">main.go</a>
-        └── <a href="nlp/cmd/nlpd/main_test.go">main_test.go</a>
+    └── nlpd - HTTP server
+        ├── <a href="html/nlp/cmd/nlpd/main.go.html">main.go</a>
+        └── <a href="html/nlp/cmd/nlpd/main_test.go.html">main_test.go</a>
 </pre>
+
+
+[Terminal Log](_extra/day-4.log)
+
 
 ### Links
 
-- Go Security
-    - [OWASP on Go](https://github.com/OWASP/Go-SCP)
-    - [Black Hat Go](https://www.amazon.com/Black-Hat-Go-Programming-Pentesters/dp/1593278659)
-    - [Security with Go](https://www.amazon.com/Security-Go-Explore-Golang-services/dp/1788627911)
-- [High Performance Go Workshop](https://dave.cheney.net/high-performance-go-workshop/dotgo-paris.html) by Dave Cheney
 - Configuration
-    - [conf](https://pkg.go.dev/github.com/ardanlabs/conf/v3) by Ardan Labs
+    - [envconfig](https://github.com/kelseyhightower/envconfig)
     - [viper](https://github.com/spf13/viper) & [cobra](https://github.com/spf13/cobra)
 - Logging 
     - Built-in [log](https://pkg.go.dev/log/)
     - [uber/zap](https://pkg.go.dev/go.uber.org/zap)
     - [logrus](https://github.com/sirupsen/logrus)
+    - [zerolog](https://github.com/rs/zerolog)
 - Metrics
     - Built-in [expvar](https://pkg.go.dev/expvar/)
     - [Open Telemetry](https://opentelemetry.io/)
@@ -261,4 +270,5 @@ Adding metrics & logging
 
 - [nlp.go](_extra/nlp.go)
 - [stemmer.go](_extra/stemmer.go)
-- [tokenize_cases.yml](_extra/tokenize_cases.yml)
+- [tokenize_cases.toml](_extra/tokenize_cases.toml)
+    - `github.com/BurntSushi/toml`

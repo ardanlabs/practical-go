@@ -4,22 +4,21 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ardanlabs/practical-go/nlp/stemmer"
+	"github.com/353solutions/nlp/stemmer"
 )
 
 var (
 	wordRe = regexp.MustCompile(`[a-zA-Z]+`)
 )
 
-// Tokenize returns slice of tokens (lower case) found in text.
+// Tokenize returns list of (lower case) tokens found in text.
 func Tokenize(text string) []string {
 	words := wordRe.FindAllString(text, -1)
-	// var tokens []string
-	tokens := make([]string, 0, 20) // 75 percentile of text has less than 20 tokens
+	var tokens []string
 	for _, w := range words {
 		token := strings.ToLower(w)
 		token = stemmer.Stem(token)
-		if token != "" {
+		if len(token) != 0 {
 			tokens = append(tokens, token)
 		}
 	}

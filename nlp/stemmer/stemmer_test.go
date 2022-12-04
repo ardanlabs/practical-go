@@ -1,27 +1,28 @@
 package stemmer
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
 )
 
-func TestStemmer(t *testing.T) {
-	cases := []struct {
-		word string
-		stem string
-	}{
-		{"works", "work"},
-		{"working", "work"},
-		{"worked", "work"},
-		{"work", "work"},
-	}
+var testCases = []struct {
+	word string
+	stem string
+}{
+	{"working", "work"},
+	{"works", "work"},
+	{"worked", "work"},
+	{"work", "work"},
+}
 
-	for _, tc := range cases {
-		t.Run(tc.word, func(t *testing.T) {
+func TestStem(t *testing.T) {
+	for _, tc := range testCases {
+		name := fmt.Sprintf("%s:%s", tc.word, tc.stem)
+		t.Run(name, func(t *testing.T) {
 			stem := Stem(tc.word)
 			require.Equal(t, tc.stem, stem)
 		})
 	}
-
 }
