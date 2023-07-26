@@ -5,6 +5,24 @@ The code & links are synced with the [online class](for Developers).
 
 This is an assorted collection of exercises for teaching, not a real Go project.
 
+## Setting Up
+
+We highly recommend that you set up a local working environment and follow along with the videos.
+To setup a local environment install the following:
+- The Go SDK either from your package manager (`brew`, `apt`, `choco` ...) or from [here](https://go.dev/dl/)
+- `git`
+- And IDE such as [VSCode](https://code.visualstudio.com/) with [the Go extension](https://marketplace.visualstudio.com/items?itemName=golang.Go) or [GoLand](https://www.jetbrains.com/go/)
+
+However, if you want to jump right in, you can use GitHub codespaces with the course repository.
+To start a codespaces follow these steps:
+
+- Click on the green "<> Code" button
+- Select the "Codespaces" tab
+- Click on the green "Create codespace on main" button
+
+After a while you should have a new tab with Visual Studio Code already set up.
+You can read more about codespaces [here](https://github.com/features/codespaces).
+
 ---
 
 ## Day 1
