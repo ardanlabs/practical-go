@@ -45,7 +45,7 @@ func main() {
 }
 
 /*
-go run -face ./count
+go run -race ./count
 
 "-race" is supportd by
 - run
